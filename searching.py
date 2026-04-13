@@ -11,10 +11,17 @@ def read_data(file_name, field):
 
     return data[field]
 
-    # get current working directory path
-    cwd_path = Path.cwd()
-    
-    file_path = cwd_path / file_name
+# def linear_search(sequence, num_search):
+#     return positions, count
+
+positions = []
+for i, hodnota in enumerate(sequence):
+    if hodnota == num_search:
+        positions.append(i)
+    # # get current working directory path
+    # cwd_path = Path.cwd()
+    #
+    # file_path = cwd_path / file_name
 
 
 def main():
@@ -23,4 +30,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
