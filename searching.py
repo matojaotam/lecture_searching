@@ -71,6 +71,18 @@ def compare_search():
 
         target = unordered[-1]
 
+        start = time.time()
+        linear_search(unordered, target)
+        end = time.time()
+        linear_times.append(end - start)
+
+
+        start = time.time()
+        binary_search(ordered, target)
+        end = time.time()
+        binary_times.append(end - start)
+
+
 
 
 
@@ -92,6 +104,8 @@ def main():
     ordered_data = read_data("sequential.json", "ordered_numbers")
     index = binary_search(ordered_data, num_search)
     print(index)
+
+    compare_search()
 if __name__ == "__main__":
     main()
 
