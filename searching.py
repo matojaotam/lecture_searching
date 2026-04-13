@@ -82,7 +82,16 @@ def compare_search():
         end = time.time()
         binary_times.append(end - start)
 
+        #graf zobrazeni
+    plt.figure()
+    plt.plot(velikosti, linear_times, label='Linear Search')
+    plt.plot(velikosti, binary_times, label='Binary Search')
 
+    plt.xlabel("Velikost vstupu")
+    plt.ylabel("Čas (s)")
+    plt.title("Porovnání lineárního a binárního vyhledávání")
+    plt.legend()
+    plt.show()
 
 
 
