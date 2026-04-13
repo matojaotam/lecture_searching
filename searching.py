@@ -27,6 +27,26 @@ def linear_search(sequence, num_search):
             positions.append(i)
 
     return {"positions": positions, "count": len(positions)}
+
+# def binary_search(num_list, num_search):
+#     return num_index
+
+def binary_search(num_list, num_search):
+    leva = 0
+    prava= len(num_list) - 1
+
+    while leva <= prava:
+        mid = (leva + prava) // 2
+        if num_list[mid] == num_search:
+            return mid
+        elif num_list[mid] < num_search:
+            leva = mid + 1
+        else:
+            prava = mid - 1
+    return None
+
+
+
 # # get current working directory path
     # cwd_path = Path.cwd()
     #
@@ -42,6 +62,9 @@ def main():
     result = linear_search(sequential_data, num_search)
     print(result)
 
+    ordered_data = read_data("sequential.json", "ordered_numbers")
+    index = binary_search(ordered_data, num_search)
+    print(index)
 if __name__ == "__main__":
     main()
 
