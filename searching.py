@@ -93,7 +93,20 @@ def compare_search():
     plt.legend()
     plt.show()
 
+# def pattern_search(sequence, vzor):
+#     return indexy_vzoru
 
+def pattern_search(sequence, vzor):
+    positions = set()
+
+    pattern_len = len(vzor)
+    sequence_len = len(sequence)
+
+    for i in range(sequence_len - pattern_len + 1):
+        if sequence[i:i + pattern_len] == vzor:
+            positions.add(i)
+
+    return positions
 
 # # get current working directory path
     # cwd_path = Path.cwd()
@@ -115,6 +128,14 @@ def main():
     print(index)
 
     compare_search()
+
+    dna_data = read_data("sequential.json", "dna_sequence")
+    pattern = "ATA"
+    positions = pattern_search(dna_data, pattern)
+    print("DNA sekvence:", dna_data)
+    print("Hledaný vzor:", pattern)
+    print("Pozice výskytu:", positions)
+
 if __name__ == "__main__":
     main()
 
